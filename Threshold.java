@@ -12,7 +12,7 @@ Number  parts               counts
 2                      {2}                 1*/
 
 
-public class NextOne {
+public class Threshold {
     public static void main(String[] args) {
     	int count=0,num2=0;
 		int [] input= {5,8,10,13,6,2};
