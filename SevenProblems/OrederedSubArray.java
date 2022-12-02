@@ -5,41 +5,33 @@ import java.util.Scanner;
 
 public class OrederedSubArray {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		Scanner input=new Scanner(System.in);
 		System.out.println("Enter the Limit : ");
-		int size = sc.nextInt();
-		int arr[] = new int[size], temp = 0;
+		int n=input.nextInt();
 		System.out.println("Enter Elements");
-		for (int i = 0; i < size; i++) {
-			arr[i] = sc.nextInt();
+		int[] inpt=new int[n];
+		
+		for(int i=0;i<n;i++)
+		{
+			inpt[i]=input.nextInt();
 		}
-		System.out.println("Enter Consective Element: ");
-		int consElement = sc.nextInt();
-		int c = consElement, s = size, start = 0, d = c;
-		while (d != 0) {
-			for (int i = start; i < size; i++) {
-				for (int j = i + 1; j < consElement; j++) {
-					if (arr[i] < arr[j]) {
-						temp = arr[i];
-						arr[i] = arr[j];
-						arr[j] = temp;
-					}
-				}
-			}
-			int k = s % c;
-			if (k > consElement) {
-				consElement += c;
-				s = s / c;
-
-			} else {
-				consElement += k;
-			}
-
-			start += c;
-			d--;
+		int k=input.nextInt();
+		for(int i=0;i<n;i+=k)
+		{
+			int left=i;
+			int r=i + k - 1;
+			int right=(r<n-1)?r:n-1;
+    while (left < right) { 
+				int temp = inpt[left]; 
+				inpt[left] = inpt[right]; 
+				inpt[right] = temp; 
+				left++; 
+				right--; 
+			} 
 		}
+		
 
-		System.out.println(Arrays.toString(arr));
-
+		for (int take : inpt)
+			System.out.print(take + " ");
 	}
 }
