@@ -21,7 +21,7 @@ public class OrderOf2n {
 			inpt[i + 1] = inpt[i + 1] + rem;
 
 		}
-		System.out.println(Arrays.toString(inpt));
+		
 		System.out.println(findReminder(inpt[n - 1]));
 
 	}
